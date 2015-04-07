@@ -14,5 +14,8 @@
   "bugs": {
     "url": "https://github.com/JacobeanRnD/SMaaS-swagger-spec/issues"
   },
-  "homepage": "https://github.com/JacobeanRnD/SMaaS-swagger-spec"
+  "homepage": "https://github.com/JacobeanRnD/SMaaS-swagger-spec",
+  "dependencies": {
+    "js-yaml": "^3.2.7"
+  }
 }
