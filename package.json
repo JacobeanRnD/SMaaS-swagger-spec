@@ -1,7 +1,12 @@
 {
   "name": "smaas-swagger-spec",
-  "version": "1.0.0",
-  "description": "",
+  "version": "0.0.1a",
+  "description": "State Machines as a Service swagger specification",
+  "author": {
+    "name" : "Jacob Beard",
+    "email" : "jake@jacobeanrnd.com",
+    "url" : "http://github.com/jbeard4"
+  },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -9,8 +14,7 @@
     "type": "git",
     "url": "https://github.com/JacobeanRnD/SMaaS-swagger-spec.git"
   },
-  "author": "",
-  "license": "ISC",
+  "license": "Apache-2",
   "bugs": {
     "url": "https://github.com/JacobeanRnD/SMaaS-swagger-spec/issues"
   },
