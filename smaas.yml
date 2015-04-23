@@ -14,6 +14,7 @@ basePath: /api/v1
 produces:
   - application/json
   - application/xml
+  - application/x-tar
   - text/event-stream
 paths:
   /:
@@ -23,20 +24,13 @@ paths:
       consumes:
         - application/xml
         - application/x-tar
-        - application/json
       produces:
         - application/json
       parameters:
-        - name: scxmlDefinition
+        - name: scxmlContent
           in: body
-          description: SCXML file
-          required: false
-          schema: 
-            type : string
-        - name: tarball
-          in: body
-          description: Mandatory index.scxml file and helper files as tar stream
-          required: false
+          description: SCXML file string or tar stream of a folder containing index.scxml
+          required: true
           schema: 
             type : string
       responses:
@@ -90,20 +84,14 @@ paths:
       consumes:
         - application/xml
         - application/x-tar
-        - application/json
       produces:
         - application/json
       parameters:
-        - name: scxmlDefinition
+      parameters:
+        - name: scxmlContent
           in: body
-          description: SCXML file
-          required: false
-          schema: 
-            type : string
-        - name: tarball
-          in: body
-          description: Mandatory index.scxml file and helper files as tar stream
-          required: false
+          description: SCXML file string or tar stream of a folder containing index.scxml
+          required: true
           schema: 
             type : string
         - name: StateChartName
