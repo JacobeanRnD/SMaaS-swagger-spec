@@ -22,6 +22,7 @@ paths:
       summary: Create a state machine definition.
       consumes:
         - application/xml
+        - application/x-tar
         - application/json
       produces:
         - application/json
@@ -32,12 +33,12 @@ paths:
           required: false
           schema: 
             type : string
-        - name: scxmlWithHandlers
+        - name: tarball
           in: body
-          description: SCXML content with handlers, send this with application/json.
+          description: Mandatory index.scxml file and helper files as tar stream
           required: false
           schema: 
-            $ref: '#/definitions/ScxmlWithHandlers'
+            type : string
       responses:
         201:
           description: Created state machine definition
@@ -88,6 +89,7 @@ paths:
       summary: Updates an existing state machine definition
       consumes:
         - application/xml
+        - application/x-tar
         - application/json
       produces:
         - application/json
@@ -98,17 +100,17 @@ paths:
           required: false
           schema: 
             type : string
+        - name: tarball
+          in: body
+          description: Mandatory index.scxml file and helper files as tar stream
+          required: false
+          schema: 
+            type : string
         - name: StateChartName
           in: path
           description: Name of the previously created statechart
           required: true
           type: string
-        - name: scxmlWithHandlers
-          in: body
-          description: SCXML content with handlers, send this with application/json.
-          required: false
-          schema: 
-            $ref: '#/definitions/ScxmlWithHandlers'
       responses:
         201:
           description: Updated state machine definition
@@ -381,12 +383,3 @@ definitions:
         type: string
       data:
         type: object
-  ScxmlWithHandlers:
-    type: object
-    properties:
-      scxml:
-        description: Scxml definition
-        type: string
-      handlers:
-        description: Associative array of handlers, name is the path that is going to register as http endpoint.
-        type: string
