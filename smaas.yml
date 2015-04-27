@@ -22,22 +22,17 @@ paths:
       summary: Create a state machine definition.
       consumes:
         - application/xml
+        - application/x-tar
         - application/json
       produces:
         - application/json
       parameters:
-        - name: scxmlDefinition
+        - name: scxmlDefinitionOrTarball
           in: body
-          description: SCXML file
-          required: false
+          description: SCXML file; OR tar stream containing mandatory index.scxml 
+          required: true
           schema: 
             type : string
-        - name: scxmlWithHandlers
-          in: body
-          description: SCXML content with handlers, send this with application/json.
-          required: false
-          schema: 
-            $ref: '#/definitions/ScxmlWithHandlers'
       responses:
         201:
           description: Created state machine definition
@@ -88,14 +83,15 @@ paths:
       summary: Updates an existing state machine definition
       consumes:
         - application/xml
+        - application/x-tar
         - application/json
       produces:
         - application/json
       parameters:
-        - name: scxmlDefinition
+        - name: scxmlDefinitionOrTarball
           in: body
-          description: SCXML file
-          required: false
+          description: SCXML file; OR tar stream containing mandatory index.scxml 
+          required: true
           schema: 
             type : string
         - name: StateChartName
@@ -103,12 +99,6 @@ paths:
           description: Name of the previously created statechart
           required: true
           type: string
-        - name: scxmlWithHandlers
-          in: body
-          description: SCXML content with handlers, send this with application/json.
-          required: false
-          schema: 
-            $ref: '#/definitions/ScxmlWithHandlers'
       responses:
         201:
           description: Updated state machine definition
@@ -381,12 +371,3 @@ definitions:
         type: string
       data:
         type: object
-  ScxmlWithHandlers:
-    type: object
-    properties:
-      scxml:
-        description: Scxml definition
-        type: string
-      handlers:
-        description: Associative array of handlers, name is the path that is going to register as http endpoint.
-        type: string
