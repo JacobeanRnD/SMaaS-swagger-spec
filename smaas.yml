@@ -371,8 +371,4 @@ definitions:
       name:
         type: string
       data:
-<<<<<<< HEAD
         type: object
-=======
-        type: object
->>>>>>> d5aa502e3fb9f6c35fcb3601e189de5f3229945f
