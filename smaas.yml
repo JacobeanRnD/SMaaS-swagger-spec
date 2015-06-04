@@ -10,14 +10,21 @@ host: simulation.scxml.io
 schemes:
   - http
 # will be prefixed to all paths
-basePath: /api/v1
+basePath: /api/v3
 produces:
   - application/json
   - application/xml
-  - application/x-tar
   - text/event-stream
 paths:
   /:
+    get:
+      operationId : getStatechartDefinition
+      summary: Get SCXML string
+      produces:
+        - application/scxml+xml
+      responses:
+        200:
+          description: Got instance
     post:
       operationId : createInstance
       summary: Create an instance with random id
