@@ -1,6 +1,6 @@
 {
   "name": "smaas-swagger-spec",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "State Machines as a Service swagger specification",
   "author": {
     "name" : "Jacob Beard",
